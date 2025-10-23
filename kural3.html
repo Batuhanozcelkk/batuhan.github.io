@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kural 3 - Yakında</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .surprise-container {
+      text-align: center;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    
+    .surprise-btn {
+      background: #ff4757;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .surprise-btn:hover {
+      background: #ff3742;
+      transform: scale(1.05);
+    }
+    
+    .surprise-content {
+      display: none;
+      margin-top: 20px;
+      padding: 20px;
+      border: 2px dashed #ff4757;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Kural 3 - Yakında</h1>
+    <p>Bu sayfa henüz hazırlanıyor...</p>
+  </header>
+
+  <main class="surprise-container">
+    <button class="surprise-btn" onclick="showSurprise()">Sürpriz Buton! 🎭</button>
+    
+    <div id="surpriseContent" class="surprise-content">
+  <h2>Ders Arası Relax Video</h2>
+  <iframe width="400" height="225" 
+          src="https://www.youtube.com/embed/GMgsFZ4rkEI"
+          frameborder="0" 
+          allowfullscreen>
+  </iframe>
+</div>
+  </main>
+
+  <script>
+    function showSurprise() {
+      const content = document.getElementById('surpriseContent');
+      content.style.display = 'block';
+      
+      // Ekstra eğlence için
+      setTimeout(() => {
+        alert('📢 Beklemede kal! Daha fazla integral gelecek!');
+      }, 500);
+    }
+    
+    function git(sayfa) {
+      window.location.href = sayfa;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Çerezlik Sorular</title>
+
+  <style>
+    :root{
+      --bg:#5e134d;
+      --card:#4d0824;
+      --accent:#6ee7b7;
+      --muted:#cfeef5;
+    }
+    body{
+      margin:0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 600px at 10% 10%, #5e134d 0%, var(--bg) 30%), var(--bg);
+      color: var(--muted);
+      padding:28px;
+    }
+    h1{
+      color: var(--accent);
+      text-align:center;
+      margin-bottom:18px;
+      font-size:28px;
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(110,231,183,0.06);
+      padding:16px;
+      border-radius:10px;
+      max-width:920px;
+      margin:14px auto;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    }
+    .qtext{
+      font-size:18px;
+      color:#e6f9f0;
+      margin-bottom:8px;
+    }
+    .btns{
+      margin-top:10px;
+    }
+    button{
+      -webkit-appearance:none;
+      appearance:none;
+      border:0;
+      background:var(--accent);
+      color:#022;
+      font-weight:700;
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+      margin-right:8px;
+    }
+    button:hover{ filter:brightness(.95); transform:translateY(-1px); }
+    .solution{
+      display:none;
+      margin-top:12px;
+      background: rgba(0,0,0,0.22);
+      padding:12px;
+      border-left:4px solid var(--accent);
+      border-radius:6px;
+      line-height:1.6;
+      color:#eafaf1;
+      font-size:15px;
+    }
+    .step{ margin:8px 0; }
+    .note{ font-size:13px; opacity:.85; margin-top:12px; color:#bfeee0; }
+    @media (max-width:680px){
+      .card{ padding:12px; margin:10px; }
+      .qtext{ font-size:16px; }
+    }
+  </style>
+
+  <!-- MathJax config: hem $...$ hem \( ... \) destekli -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+
+  <h1>Çerezlik Sorular</h1>
+
+  <!-- Soru 1 -->
+  <div class="card">
+    <div class="qtext">1) $\,\displaystyle \int \sin^{2}x \, dx \,$</div>
+    <div class="btns">
+      <button onclick="toggle('s1')">Goster / Gizle Cozum</button>
+    </div>
+    <div id="s1" class="solution">
+      <div class="step">Adım 1: Power-reduction uygulanır: $\,\sin^{2}x = \dfrac{1-\cos(2x)}{2}\,$.</div>
+      <div class="step">Adım 2:
+        $$
+        \int \sin^{2}x \,dx
+        = \int \frac{1-\cos(2x)}{2}\,dx
+        = \frac{1}{2}\int 1\,dx - \frac{1}{2}\int \cos(2x)\,dx.
+        $$
+      </div>
+      <div class="step">Adım 3: $\int \cos(2x)\,dx = \dfrac{\sin(2x)}{2}$ olduğuna göre:
+        $$
+        \frac{x}{2} - \frac{\sin(2x)}{4} + C.
+        $$
+      </div>
+    </div>
+  </div>
+
+  <!-- Soru 2 -->
+  <div class="card">
+    <div class="qtext">2) $\,\displaystyle \int \cos^{2}x \, dx \,$</div>
+    <div class="btns">
+      <button onclick="toggle('s2')">Goster / Gizle Cozum</button>
+    </div>
+    <div id="s2" class="solution">
+      <div class="step">Adım 1: Power-reduction: $\,\cos^{2}x = \dfrac{1+\cos(2x)}{2}\,$.</div>
+      <div class="step">Adım 2:
+        $$
+        \int \cos^{2}x\,dx = \frac{1}{2}\int 1\,dx + \frac{1}{2}\int \cos(2x)\,dx
+        = \frac{x}{2} + \frac{\sin(2x)}{4} + C.
+        $$
+      </div>
+    </div>
+  </div>
+
+  <!-- Soru 3 -->
+  <div class="card">
+    <div class="qtext">3) $\,\displaystyle \int \sin x \cos x \, dx \,$</div>
+    <div class="btns">
+      <button onclick="toggle('s3')">Goster / Gizle Cozum</button>
+    </div>
+    <div id="s3" class="solution">
+      <div class="step">Yöntem A (çift açı): $\,\sin x\cos x = \tfrac{1}{2}\sin(2x)\,$.</div>
+      <div class="step">
+        $$
+        \int \sin x\cos x\,dx = \frac{1}{2}\int \sin(2x)\,dx = -\frac{1}{4}\cos(2x) + C.
+        $$
+      </div>
+      <div class="step">Yöntem B (u-sub): $u=\sin x \Rightarrow du=\cos x\,dx$:
+        $$
+        \int \sin x\cos x\,dx = \int u\,du = \frac{u^{2}}{2} + C = \frac{\sin^{2}x}{2}+C.
+        $$
+      </div>
+    </div>
+  </div>
+
+  <!-- Soru 4 -->
+  <div class="card">
+    <div class="qtext">4) $\,\displaystyle \int \frac{1+\sin x}{\cos x}\, dx \,$</div>
+    <div class="btns">
+      <button onclick="toggle('s4')">Goster / Gizle Cozum</button>
+    </div>
+    <div id="s4" class="solution">
+      <div class="step">Önce parçala:
+        $$
+        \frac{1+\sin x}{\cos x} = \sec x + \tan x.
+        $$
+      </div>
+      <div class="step">Bilinen integralleri kullan:
+        $$
+        \int \sec x\,dx = \ln|\sec x + \tan x| + C_1,\qquad
+        \int \tan x\,dx = -\ln|\cos x| + C_2.
+        $$
+      </div>
+      <div class="step">Sonuç (sabitleri birleştirerek yazılır):
+        $$
+        \ln|\sec x + \tan x| - \ln|\cos x| + C.
+        $$
+      </div>
+    </div>
+  </div>
+
+  <!-- Soru 5 -->
+  <div class="card">
+    <div class="qtext">5) $\,\displaystyle \int \tan^{2}x\; \sec^{2}x \, dx \,$</div>
+    <div class="btns">
+      <button onclick="toggle('s5')">Goster / Gizle Cozum</button>
+    </div>
+    <div id="s5" class="solution">
+      <div class="step">Yer değiştirme yap: $u=\tan x \Rightarrow du=\sec^{2}x\,dx$.</div>
+      <div class="step">O halde
+        $$
+        \int \tan^{2}x\; \sec^{2}x\,dx = \int u^{2}\,du = \frac{u^{3}}{3} + C = \frac{\tan^{3}x}{3} + C.
+        $$
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Not: Butona bastıktan sonra MathJax formülleri yeniden render ediliyor; eğer ilk başta formüller düz metin göründüyse bir kez butona basınca düzgünleşecektir.</p>
+
+  <script>
+    function toggle(id){
+      const el = document.getElementById(id);
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+      // MathJax yeniden render
+      if (window.MathJax && MathJax.typeset) MathJax.typeset();
+    }
+    // sayfa yuklendiginde MathJax'i tetikle (cache durumu icin)
+    window.addEventListener('load', ()=>{ if (window.MathJax && MathJax.typeset) MathJax.typeset(); });
+  </script>
+
+</body>
+</html>
